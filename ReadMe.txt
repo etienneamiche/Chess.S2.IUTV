@@ -1,2 +1,2 @@
 Bonjour jeu d'echec
-Bonsoir.
+Bonsoir. TEST
