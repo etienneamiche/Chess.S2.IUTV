@@ -1,10 +1,12 @@
 
+import java.util.ArrayList;
 public abstract class Piece {
 
 		protected String nom;
 		protected String couleur;
 		
-		public Piece(String nom, String couleur){
+		public Piece(String nom, String couleur)
+		{
 			
 			this.nom=nom;
 			this.couleur=couleur;
@@ -21,7 +23,7 @@ public abstract class Piece {
 		}
 		
 		
-		public abstract boolean deplacementValide(Deplacement deplacement);
+		public abstract ArrayList<Position> deplacementValide(Position départ);
 		
 		
 		
