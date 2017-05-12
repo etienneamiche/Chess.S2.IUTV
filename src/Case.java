@@ -34,5 +34,10 @@ public class Case {
 		return(this.piece.getCouleur() == couleur);
 	}
 	
+	public String toString()
+	{
+		if (this.piece==null) return "vide";
+		return this.getPiece().toString();
+	}
 }
 

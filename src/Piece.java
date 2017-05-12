@@ -1,16 +1,11 @@
-
 import java.util.ArrayList;
+
 public abstract class Piece {
 
 		protected String nom;
 		protected String couleur;
-		
-		public Piece(String nom, String couleur)
-		{
-			
-			this.nom=nom;
-			this.couleur=couleur;
-		}
+		 
+	
 		
 		public String getNom()
 		{
@@ -22,8 +17,12 @@ public abstract class Piece {
 			return this.couleur;
 		}
 		
+		public String toString()
+		{
+			return nom + "-" + couleur;
+		}
 		
-		public abstract ArrayList<Position> deplacementValide(Position départ);
+		public abstract ArrayList<Deplacement> deplacementValide(Position départ);
 		
 		
 		

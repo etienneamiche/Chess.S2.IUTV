@@ -2,17 +2,26 @@ import java.util.ArrayList;
 
 public class Pion extends Piece{
 	
+	
+
+
+	
 	public Pion(String couleur)
 	{
-		super("pion",couleur);
+		this.nom="pion";
+		this.couleur=couleur;
+	
+		
 		
 	}
 	
-	public ArrayList<Position> deplacementValide(Position depart)
+	
+	
+	public ArrayList<Deplacement> deplacementValide(Position depart)
 	{
-		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
+		ArrayList<Deplacement> deplacementsPossibles = new ArrayList<Deplacement>();
 		
-		deplacementsPossibles.add(depart);
+		
 		return deplacementsPossibles;
 	}
 
