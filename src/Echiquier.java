@@ -27,6 +27,7 @@ public class Echiquier{
 	
 	public void setPiece(Piece piece,Position position)
 	{
+		
 		this.plateau[position.getLigne()][position.getColonne()].setPiece(piece);
 	}
 	
@@ -56,8 +57,8 @@ public class Echiquier{
 		plateau[0][0].setPiece(new Tour("noir"));
 		plateau[0][1].setPiece(new Cavalier("noir"));
 		plateau[0][2].setPiece(new Fou("noir"));
-		plateau[0][4].setPiece(new Roi("noir"));
-		plateau[0][3].setPiece(new Dame("noir"));
+		plateau[0][3].setPiece(new Roi("noir"));
+		plateau[0][4].setPiece(new Dame("noir"));
 		plateau[0][5].setPiece(new Fou("noir"));
 		plateau[0][6].setPiece(new Cavalier("noir"));
 		plateau[0][7].setPiece(new Tour("noir"));

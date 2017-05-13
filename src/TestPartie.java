@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class TestPartie {
 
@@ -5,8 +6,48 @@ public class TestPartie {
 	
 	
 	
-	// CREATION d'un echiquier test et remplissage avec des Pions
+	public static Deplacement saisieUtilisateur()
+	{
+		Scanner sc = new Scanner(System.in);
+		String str;
+		Position posInit;
+		Position posFinal;
+		int i,j;
+		
+		do
+		{
+		System.out.println("saisir une position depart:");
+		str = sc.nextLine();
+	
+		i = ((int) str.charAt(0)) - 65;
+	
+		j = (int) str.charAt(1)-49; 
+		
+		}while( !(!(i < 0 || i > 7) && !(j < 0 || j > 7)) );
+		
+		posInit = new Position(i,j);
+		
+		do
+		{
+			
+		System.out.println("saisir une position d'arriver:");
+		str = sc.nextLine();
+	
+		i = ((int) str.charAt(0)) - 65;
+		j = (int) str.charAt(1)-49; 
+		
+		}while( !( !(i < 0 || i > 7) && !(j < 0 || j > 7) ) );
+		
+		
+		posFinal= new Position(i,j);
+		
 
+	
+		Deplacement depl = new Deplacement(posInit,posFinal);
+		
+		return depl;
+		
+	}
 	
 	
 	public static void main(String[] args)
@@ -15,27 +56,15 @@ public class TestPartie {
 		
 		Affichage p = new Affichage();
 		
-		//afficher echiquier vide;
-		
-		p.afficher(e);
-		 
 		e.remplir();
-		
-		p.afficher("REMPLISSAGE");
-		
-		
-		Position posInit = new Position(1,3);
-		Position posFinal = new Position(3,3);
-		Deplacement depl = new Deplacement(posInit,posFinal);
-		//afficher echiqier rempli
+
 		p.afficher(e);
 		
-		// deplacer une piece de la case[1][3] a la case[3][3]
-		
-		e.Deplacer(depl);
-		
-		
+		e.Deplacer(saisieUtilisateur());
 		p.afficher(e);
+		
+		e.Deplacer(saisieUtilisateur());
+		p.afficher(e);	
 		
 		
 		
