@@ -14,7 +14,7 @@ public class Position {
 	}
 
 	public int getColonne() {
-		return colonne;
+		return this.colonne;
 	}
 
 	public void setColonne(int colonne) {
@@ -22,11 +22,21 @@ public class Position {
 	}
 
 	public int getLigne() {
-		return ligne;
+		return this.ligne;
 	}
 
 	public void setLigne(int ligne) {
 		this.ligne = ligne;
+	}
+	
+	public Piece getPiece(Position position,Echiquier e)
+	{
+		return e.getPiece(position);
+	}
+	
+	public String toString()
+	{
+		return "" + this.ligne + this.colonne;
 	}
 	
 }

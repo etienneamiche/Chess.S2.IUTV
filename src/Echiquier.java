@@ -17,11 +17,30 @@ public class Echiquier{
 	}
 	
 	
-	public Case getCase(int ligne,int colonne)
+
+	
+	public Piece getPiece(Position position)
 	{
-		return plateau[colonne][ligne];
+		return this.plateau[position.getLigne()][position.getColonne()].getPiece();
 	}
 	
+	
+	public void setPiece(Piece piece,Position position)
+	{
+		this.plateau[position.getLigne()][position.getColonne()].setPiece(piece);
+	}
+	
+	
+	public void Deplacer(Deplacement dep)
+	{
+		//VERIFIER QUE LE DEPLACEMENT EST VALIDE
+		/* comparer le Depacement a l'ArrayList de la piece Selectionée
+		 */
+		
+		this.setPiece(getPiece(dep.getPositionInitial()), dep.getPositionFinal());
+		this.setPiece(null, dep.getPositionInitial());
+		
+	}
 	
 	public void remplir() {
 		
@@ -31,7 +50,7 @@ public class Echiquier{
 			plateau[1][i].setPiece(new Pion("noir"));
 			plateau[6][i].setPiece(new Pion("blanc"));
 		}
-		
+	
 	}
 	
 	

@@ -20,6 +20,19 @@ public abstract class Piece {
 		public abstract String toString();
 		
 		public abstract ArrayList<Deplacement> deplacementValide(Position départ);
+		//AJOUTER TOUT LES MOUVEMENT POSIBLE DE LA PIECE EN FONCTION DE SA POSITION ACTUELLE
+		
+			
+		/* -un deplacement est valide si:
+		 *  
+		 * -la positionInitial contient une piece de la couleur du joueur courant
+		 * -la position final est dans le tableau
+		 * -la position final est une case vide ou une Piece Adverse
+		 * -Il n'y a pas de piece présente Dans la trajectoire de la pièce déplacé
+		 * (Sauf Cavalier)
+		 * 
+		 * 
+		 */
 		
 		
 		

@@ -5,14 +5,17 @@ public class Deplacement {
 	
 	public Deplacement(Position positionInitial, Position positionFinal)
 	{
-		this.positionFinal=positionFinal;
 		this.positionInitial=positionInitial;
+		this.positionFinal=positionFinal;
+		
 	}
+	
+	
 	
 	
 	public String toString()
 	{
-		return this.positionInitial.toString() + "-" + this.positionFinal.toString();
+		return this.positionInitial.toString() + ":" + this.positionFinal.toString();
 	}
 	
 	public Position getPositionFinal() {

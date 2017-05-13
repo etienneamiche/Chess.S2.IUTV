@@ -14,10 +14,12 @@ public class Pion extends Piece{
 	
 	public String toString()
 	{
-		if (this.couleur=="noir") return "|"+"\u265F";
-		else return "|"+"\u2659";
+		if (this.couleur=="noir") return "|"+"\u2659";
+		else return "|"+"\u265F";
 	}
-	
+	/*DEPLACEMENT D'UN PION
+	 * 
+	 */
 	public ArrayList<Deplacement> deplacementValide(Position depart)
 	{
 		ArrayList<Deplacement> deplacementsPossibles = new ArrayList<Deplacement>();
