@@ -10,7 +10,7 @@ public class Roi extends Piece{
 	
 	public String toString()
 	{
-		if (this.couleur=="noir") return "\u265A";
+		if (this.couleur=="blanc") return "\u265A";
 		else return "\u2654";
 	}
 	/*

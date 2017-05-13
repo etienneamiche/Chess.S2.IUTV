@@ -10,7 +10,7 @@ public class Dame extends Piece{
 	
 	public String toString()
 	{
-		if (this.couleur=="noir") return "\u265B";
+		if (this.couleur=="blanc") return "\u265B";
 		else return "\u2655";
 	}
 	/*

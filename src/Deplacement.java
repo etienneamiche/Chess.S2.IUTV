@@ -17,7 +17,6 @@ public class Deplacement {
 	{
 		return this.positionInitial.toString() + ":" + this.positionFinal.toString();
 	}
-	
 	public Position getPositionFinal() {
 		return positionFinal;
 	}
