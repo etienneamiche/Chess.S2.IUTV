@@ -1,5 +1,5 @@
 
-public class Echiquier {
+public class Echiquier{
 	
 	private Case[][] plateau;
 	
@@ -10,6 +10,12 @@ public class Echiquier {
 			for(int j=0; j<8; j++)
 			plateau[i][j] = new Case();
 	}
+	
+	public Case[][] getPlateau()
+	{
+		return this.plateau;
+	}
+	
 	
 	public Case getCase(int ligne,int colonne)
 	{
@@ -22,7 +28,8 @@ public class Echiquier {
 		for(int i = 0 ; i < 8;i++)
 		{
 			
-			plateau[0][i].setPiece(new Pion("noir"));
+			plateau[1][i].setPiece(new Pion("noir"));
+			plateau[6][i].setPiece(new Pion("blanc"));
 		}
 		
 	}
@@ -30,26 +37,7 @@ public class Echiquier {
 	
 	
 	
+
 	
-	// CREATION d'un echiquier test et remplissage avec des Pions
-	
-	public static void main(String[] args)
-	{
-		Echiquier e = new Echiquier();
-		
-		for(int i = 0 ; i < 8;i++)
-		{
-			System.out.print(e.plateau[0][i].toString() + "  ");
-		}
-		
-		e.remplir();
-		
-		System.out.print('\n'+"REMPLISSAGE" +'\n');
-		
-		for(int i = 0 ; i < 8;i++)
-		{
-			System.out.print(e.plateau[0][i].toString() + "  " );
-		}
-		
-	}
+
 }

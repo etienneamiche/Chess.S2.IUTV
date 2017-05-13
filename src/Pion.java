@@ -10,12 +10,13 @@ public class Pion extends Piece{
 	{
 		this.nom="pion";
 		this.couleur=couleur;
-	
-		
-		
 	}
 	
-	
+	public String toString()
+	{
+		if (this.couleur=="noir") return "|"+"\u265F";
+		else return "|"+"\u2659";
+	}
 	
 	public ArrayList<Deplacement> deplacementValide(Position depart)
 	{

@@ -17,10 +17,7 @@ public abstract class Piece {
 			return this.couleur;
 		}
 		
-		public String toString()
-		{
-			return nom + "-" + couleur;
-		}
+		public abstract String toString();
 		
 		public abstract ArrayList<Deplacement> deplacementValide(Position départ);
 		

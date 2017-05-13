@@ -10,9 +10,6 @@ public class Deplacement {
 	}
 	
 	
-	
-	
-	
 	public String toString()
 	{
 		return this.positionInitial.toString() + "-" + this.positionFinal.toString();
