@@ -36,7 +36,7 @@ public class Case {
 	
 	public String toString()
 	{
-		if (this.piece==null) return "|_";
+		if (this.piece==null) return "_";
 		return this.getPiece().toString();
 	}
 }

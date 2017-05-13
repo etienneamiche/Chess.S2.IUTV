@@ -16,6 +16,7 @@ public class Affichage {
 				System.out.print((char)(i+65));
 				for(int j=0;j<8;j++)
 				{
+					System.out.print("|");
 					System.out.print(plateau.getPlateau()[i][j].toString());
 				}
 				System.out.print("|" + '\n');
