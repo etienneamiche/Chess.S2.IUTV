@@ -5,21 +5,16 @@ public class TestPartie {
 	public static void main(String[] args)
 	{
 		Echiquier e = new Echiquier();
+		Affichage a = new Affichage();
 		
-		Affichage p = new Affichage();
 		e.remplir();
 
-		p.afficher(e);
+		a.afficher(e);
 		e.Deplacer();
 		
-		p.afficher(e);
+		a.afficher(e);
 		
 		e.Deplacer();
-		p.afficher(e);	
-		
-		
-		
+		a.afficher(e);
 	}
-		
-		
 }

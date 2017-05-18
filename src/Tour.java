@@ -26,9 +26,12 @@ public class Tour extends Piece{
 	 elle ne peut pas sauter par-dessus et est dans l'obligation de s'arrêter au plus loin dans la case adjacente.
 	*/
 	
-	public ArrayList<Deplacement> deplacementValide(Position départ) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Position> deplacementValide(Position depart)
+	{
+		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
+		
+		
+		return deplacementsPossibles;
 	}
 
 }

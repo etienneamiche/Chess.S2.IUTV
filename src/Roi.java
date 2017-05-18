@@ -23,9 +23,12 @@ public class Roi extends Piece{
 	-Le roi n'est autorisé à se déplacer sur une case que si celle-ci n'est pas attaquée par une pièce adverse.
 	Comparer a la liste de deplacement possible de toute les piece adverse du plateau
 	*/
-	public ArrayList<Deplacement> deplacementValide(Position départ) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Position> deplacementValide(Position depart)
+	{
+		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
+		
+		
+		return deplacementsPossibles;
 	}
 
 }

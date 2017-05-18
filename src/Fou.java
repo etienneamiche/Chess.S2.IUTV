@@ -25,9 +25,12 @@ public class Fou extends Piece{
 	*/
 	
 	
-	public ArrayList<Deplacement> deplacementValide(Position départ) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Position> deplacementValide(Position depart)
+	{
+		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
+		
+		
+		return deplacementsPossibles;
 	}
 
 }

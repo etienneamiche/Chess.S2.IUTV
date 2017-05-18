@@ -29,9 +29,9 @@ public class Pion extends Piece{
 	rien ne l'empêche d'aller vers l'avant s'il n'y a pas d'obstacle.
 	
 */	
-	public ArrayList<Deplacement> deplacementValide(Position depart)
+	public ArrayList<Position> deplacementValide(Position depart)
 	{
-		ArrayList<Deplacement> deplacementsPossibles = new ArrayList<Deplacement>();
+		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
 		
 		
 		return deplacementsPossibles;

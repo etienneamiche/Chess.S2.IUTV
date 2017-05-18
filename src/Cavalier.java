@@ -23,9 +23,12 @@ public class Cavalier extends Piece{
 	
 	-Si la case d'arrivée est occupée par une pièce de son camp, il ne peut en aucun cas s'y rendre.
 	*/
-	public ArrayList<Deplacement> deplacementValide(Position départ) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Position> deplacementValide(Position depart)
+	{
+		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
+		
+		
+		return deplacementsPossibles;
 	}
 
 }

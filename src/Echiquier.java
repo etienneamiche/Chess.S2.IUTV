@@ -20,13 +20,11 @@ public class Echiquier{
 	{
 		return this.plateau[position.getLigne()][position.getColonne()].getPiece();
 	}
-	
-	
+		
 	public void setPiece(Piece piece,Position position)
 	{
 		this.plateau[position.getLigne()][position.getColonne()].setPiece(piece);
 	}
-	
 	
 	public void Deplacer()
 	{
@@ -60,18 +58,9 @@ public class Echiquier{
 		plateau[0][6].setPiece(new Cavalier("noir"));
 		plateau[0][7].setPiece(new Tour("noir"));
 		for(int i = 0 ; i < 8;i++)
-		{
-			
+		{	
 			plateau[1][i].setPiece(new Pion("noir"));
 			plateau[6][i].setPiece(new Pion("blanc"));
 		}
-	
 	}
-	
-	
-	
-	
-
-	
-
 }

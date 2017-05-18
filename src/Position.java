@@ -5,8 +5,8 @@ public class Position {
 	
 	public Position()
 	{
-		
 	}
+	
 	public Position(int ligne,int colonne)
 	{
 		this.setLigne(ligne);
@@ -38,5 +38,4 @@ public class Position {
 	{
 		return "" + this.ligne + this.colonne;
 	}
-	
 }

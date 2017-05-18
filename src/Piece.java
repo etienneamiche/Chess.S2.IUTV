@@ -19,7 +19,7 @@ public abstract class Piece {
 		
 		public abstract String toString();
 		
-		public abstract ArrayList<Deplacement> deplacementValide(Position départ);
+		public abstract ArrayList<Position> deplacementValide(Position départ);
 		
 		
 		//AJOUTER TOUT LES MOUVEMENT POSIBLE DE LA PIECE EN FONCTION DE SA POSITION ACTUELLE

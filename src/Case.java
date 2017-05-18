@@ -5,7 +5,7 @@ public class Case {
 	
 	public Case()
 	{
-		
+		this.piece = null;
 	}
 	
 	public Case(Piece piece)
