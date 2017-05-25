@@ -8,6 +8,7 @@ public class Pion extends Piece{
 	{
 		this.nom="pion";
 		this.couleur=couleur;
+
 	}
 	
 	public String toString()
@@ -29,11 +30,40 @@ public class Pion extends Piece{
 	rien ne l'empêche d'aller vers l'avant s'il n'y a pas d'obstacle.
 	
 */	
-	public ArrayList<Position> deplacementValide(Position depart)
+	public ArrayList<Position> deplacementValide(Position depart,Echiquier e)
 	{
 		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
 		
 		
+		if (this.couleur == "noir")
+		{
+			if(e.getCase(depart.getLigne()+1,depart.getColonne()) == null)
+			{
+				deplacementsPossibles.add( new Position(depart.getLigne()+1,depart.getColonne()) );
+				
+				if (depart.getLigne() == 1 )
+				{
+					Position pos2=new Position(depart.getLigne()+2,depart.getColonne());
+					deplacementsPossibles.add(pos2);
+				}
+			}
+			
+		
+			if(e.getCase(depart.getLigne()+1,depart.getColonne()-1) != null) 
+			{
+				Position pos3 = (new Position(depart.getLigne()+1,depart.getColonne()-1));
+				deplacementsPossibles.add(pos3);
+			}
+			
+			if( (e.getCase(depart.getLigne()+1,depart.getColonne()-1) != null) )
+			{
+				Position pos4 = (new Position(depart.getLigne()+1,depart.getColonne()+1));
+				deplacementsPossibles.add(pos4);
+			}
+
+		}
+
+			
 		return deplacementsPossibles;
 	}
 

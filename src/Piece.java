@@ -4,7 +4,7 @@ public abstract class Piece {
 
 		protected String nom;
 		protected String couleur;
-		 
+		
 	
 		
 		public String getNom()
@@ -19,7 +19,14 @@ public abstract class Piece {
 		
 		public abstract String toString();
 		
-		public abstract ArrayList<Position> deplacementValide(Position départ);
+		public abstract ArrayList<Position> deplacementValide(Position départ,Echiquier e);
+
+	
+		
+
+		
+		
+
 		
 		
 		//AJOUTER TOUT LES MOUVEMENT POSIBLE DE LA PIECE EN FONCTION DE SA POSITION ACTUELLE

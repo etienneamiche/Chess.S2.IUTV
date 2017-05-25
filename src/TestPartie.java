@@ -1,20 +1,35 @@
-import java.util.Scanner;
+
 
 public class TestPartie {
 
+	
+	private Echiquier e;
+	
+	public TestPartie(Echiquier ech)
+	{
+		this.e=ech;
+	}
+	
+	public Echiquier getEchiquier()
+	{
+		return this.e;
+	}
+	
+	
+	
 	public static void main(String[] args)
 	{
 		Echiquier e = new Echiquier();
 		Affichage a = new Affichage();
-		
-		e.remplir();
+		TestPartie t = new TestPartie(e);
+		t.e.remplir();
 
-		a.afficher(e);
-		e.Deplacer();
+		a.afficher(t.e);
+		t.e.Deplacer();
 		
-		a.afficher(e);
+		a.afficher(t.e);
 		
-		e.Deplacer();
-		a.afficher(e);
+		t.e.Deplacer();
+		a.afficher(t.e);
 	}
 }

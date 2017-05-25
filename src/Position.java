@@ -12,6 +12,16 @@ public class Position {
 		this.setLigne(ligne);
 		this.setColonne(colonne);
 	}
+	
+	public boolean equals(Object o)
+	
+	{
+		Position c = (Position) o;
+	
+			return (this.ligne==c.ligne && this.colonne==c.colonne );
+
+	}
+	
 
 	public int getColonne() {
 		return this.colonne;
@@ -29,9 +39,9 @@ public class Position {
 		this.ligne = ligne;
 	}
 	
-	public Piece getPiece(Position position,Echiquier e)
+	public Case getCase(Echiquier e)
 	{
-		return e.getPiece(position);
+		return e.getCase(this.ligne,this.colonne);
 	}
 	
 	public String toString()
