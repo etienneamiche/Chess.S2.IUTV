@@ -2,7 +2,7 @@
 public class Case {
 	
 	private Piece piece;
-	
+
 	public Case()
 	{
 		this.piece = null;
@@ -23,15 +23,20 @@ public class Case {
 		this.piece = piece;
 	}
 
-	public boolean occupé()
+	public boolean occupe()
 	{
 		return (this.piece != null);
+		
+		
 	}
 	
-	public boolean occupé(String couleur)
+	public boolean occupe(String couleur)
 	{
+		
 		if (this.piece == null) return false;
 		return(this.piece.getCouleur() == couleur);
+		
+		
 	}
 	
 	public String toString()

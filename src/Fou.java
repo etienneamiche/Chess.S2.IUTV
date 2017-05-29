@@ -25,10 +25,84 @@ public class Fou extends Piece{
 	*/
 	
 	
-	public ArrayList<Position> deplacementValide(Position depart)
+	public ArrayList<Position> deplacementValide(Position depart,Echiquier e)
 	{
 		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
 		
+
+		
+		int i = 1; 
+		while( e.getCase(depart.getLigne()+i , depart.getColonne() +i) != null )
+		{
+			if(e.getCase(depart.getLigne()+i , depart.getColonne() +i).occupe(this.getCouleur()) == true)
+			{
+				break;
+			}
+			if(e.getCase(depart.getLigne()+i , depart.getColonne() +i).occupe() == false )
+				{deplacementsPossibles.add(new Position(depart.getLigne()+i,depart.getColonne()  +i));}
+			if(e.getCase(depart.getLigne()+i , depart.getColonne() +i).occupe(this.oposit() ) == true)
+				{
+				deplacementsPossibles.add(new Position(depart.getLigne()+i,depart.getColonne()  +i));
+				break;
+				}
+			i++;
+			
+		}
+		i=1;
+		while( e.getCase(depart.getLigne()-i , depart.getColonne()  +i) != null )
+		{
+			if(e.getCase(depart.getLigne()-i , depart.getColonne()  +i).occupe(this.getCouleur()) == true)
+			{
+				break;
+			}
+			if(e.getCase(depart.getLigne()-i , depart.getColonne()  +i).occupe() == false)
+				{deplacementsPossibles.add(new Position(depart.getLigne()-i,depart.getColonne()  +i));}
+			if(e.getCase(depart.getLigne()-i , depart.getColonne()  +i).occupe(this.oposit()) == true)
+				{
+				deplacementsPossibles.add(new Position(depart.getLigne()-i,depart.getColonne()  +i));
+				break;
+				}
+			i++;
+			
+		}
+		i=1;
+		while( e.getCase(depart.getLigne() +i, depart.getColonne() -i) != null )
+		{
+			if( e.getCase(depart.getLigne()+i , depart.getColonne() -i).occupe(this.getCouleur()) == true)
+			{
+				break;
+			}
+			if(e.getCase(depart.getLigne() +i, depart.getColonne() -i).occupe() == false )
+				{deplacementsPossibles.add(new Position(depart.getLigne()+i,depart.getColonne()-i ));}
+			if( e.getCase(depart.getLigne()+i , depart.getColonne() -i).occupe(this.oposit()) == true)
+			{
+				deplacementsPossibles.add(new Position(depart.getLigne()+i,depart.getColonne()-i ));
+				break;
+			}
+			i++;
+			
+		}
+
+		i=1;
+		while( e.getCase(depart.getLigne() -i, depart.getColonne() -i) != null )
+		{
+			if(e.getCase(depart.getLigne() -i, depart.getColonne() -i).occupe(this.getCouleur()) == true )
+			{
+				break;
+			}
+			if(e.getCase(depart.getLigne() -i, depart.getColonne() -i).occupe() == false)
+				{deplacementsPossibles.add(new Position(depart.getLigne()-i,depart.getColonne()-i ));}
+			if(e.getCase(depart.getLigne() -i, depart.getColonne() -i).occupe(this.oposit()) == true )
+			{
+				deplacementsPossibles.add(new Position(depart.getLigne()-i,depart.getColonne()-i ));
+				break;
+			}
+			i++;
+			
+		}
+		
+		
+		System.out.println(deplacementsPossibles.toString());
 		
 		return deplacementsPossibles;
 	}

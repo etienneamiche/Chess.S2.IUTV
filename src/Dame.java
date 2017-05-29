@@ -24,10 +24,153 @@ public class Dame extends Piece{
 	et est dans l'obligation de s'arrêter au plus loin dans la case adjacente.
 	 */
 	
-	public ArrayList<Position> deplacementValide(Position depart)
+	public ArrayList<Position> deplacementValide(Position depart,Echiquier e)
 	{
 		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
+		int i = 1; 
+		while( e.getCase(depart.getLigne()+i , depart.getColonne() +i) != null )
+		{
+			if(e.getCase(depart.getLigne()+i , depart.getColonne() +i).occupe(this.getCouleur() ) == true)
+			{
+				break;
+			}
+			if(e.getCase(depart.getLigne()+i , depart.getColonne() +i).occupe() == false )
+				{deplacementsPossibles.add(new Position(depart.getLigne()+i,depart.getColonne()  +i));}
+			if(e.getCase(depart.getLigne()+i , depart.getColonne() +i).occupe(this.oposit() ) == true)
+				{
+				deplacementsPossibles.add(new Position(depart.getLigne()+i,depart.getColonne()  +i));
+				break;
+				}
+			i++;
+			
+		}
+		i=1;
+		while( e.getCase(depart.getLigne()-i , depart.getColonne()  +i) != null )
+		{
+			if(e.getCase(depart.getLigne()-i , depart.getColonne()  +i).occupe(this.getCouleur()) == true)
+			{
+				break;
+			}
+			if(e.getCase(depart.getLigne()-i , depart.getColonne()  +i).occupe() == false)
+				{deplacementsPossibles.add(new Position(depart.getLigne()-i,depart.getColonne()  +i));}
+			if(e.getCase(depart.getLigne()-i , depart.getColonne()  +i).occupe(this.oposit()) == true)
+				{
+				deplacementsPossibles.add(new Position(depart.getLigne()-i,depart.getColonne()  +i));
+				break;
+				}
+			i++;
+			
+		}
+		i=1;
+		while( e.getCase(depart.getLigne() +i, depart.getColonne() -i) != null )
+		{
+			if( e.getCase(depart.getLigne()+i , depart.getColonne() -i).occupe(this.getCouleur()) == true)
+			{
+				break;
+			}
+			if(e.getCase(depart.getLigne() +i, depart.getColonne() -i).occupe() == false )
+				{deplacementsPossibles.add(new Position(depart.getLigne()+i,depart.getColonne()-i ));}
+			if( e.getCase(depart.getLigne()+i , depart.getColonne() -i).occupe(this.oposit()) == true)
+			{
+				deplacementsPossibles.add(new Position(depart.getLigne()+i,depart.getColonne()-i ));
+				break;
+			}
+			i++;
+			
+		}
+
+		i=1;
+		while( e.getCase(depart.getLigne() -i, depart.getColonne() -i) != null )
+		{
+			if(e.getCase(depart.getLigne() -i, depart.getColonne() -i).occupe(this.getCouleur()) == true )
+			{
+				break;
+			}
+			if(e.getCase(depart.getLigne() -i, depart.getColonne() -i).occupe() == false)
+				{deplacementsPossibles.add(new Position(depart.getLigne()-i,depart.getColonne()-i ));}
+			if(e.getCase(depart.getLigne() -i, depart.getColonne() -i).occupe(this.oposit()) == true )
+			{
+				deplacementsPossibles.add(new Position(depart.getLigne()-i,depart.getColonne()-i ));
+				break;
+			}
+			i++;
+			
+		}
 		
+		i = 1; 
+		while( e.getCase(depart.getLigne()+i , depart.getColonne()) != null )
+		{
+			if(e.getCase(depart.getLigne()+i , depart.getColonne()).occupe(this.getCouleur()) == true)
+			{
+				break;
+			}
+			if(e.getCase(depart.getLigne()+i , depart.getColonne()).occupe() == false )
+				{deplacementsPossibles.add(new Position(depart.getLigne()+i,depart.getColonne() ));}
+			if(e.getCase(depart.getLigne()+i , depart.getColonne()).occupe(this.oposit()) == true)
+				{
+				deplacementsPossibles.add(new Position(depart.getLigne()+i,depart.getColonne() ));
+				break;
+				}
+			
+			i++;
+			
+		}
+		i=1;
+		while( e.getCase(depart.getLigne()-i , depart.getColonne()) != null )
+		{
+			if(e.getCase(depart.getLigne()-i , depart.getColonne()).occupe(this.getCouleur()) == true)
+			{
+				break;
+			}
+			if(e.getCase(depart.getLigne()-i , depart.getColonne()).occupe() == false)
+				{deplacementsPossibles.add(new Position(depart.getLigne()-i,depart.getColonne() ));}
+			if(e.getCase(depart.getLigne()-i , depart.getColonne()).occupe(this.oposit()) == true)
+				{
+				deplacementsPossibles.add(new Position(depart.getLigne()-i,depart.getColonne() ));
+				break;
+				}
+		
+			i++;
+			
+		}
+		i=1;
+		while( e.getCase(depart.getLigne() , depart.getColonne() +i) != null )
+		{
+			if(e.getCase(depart.getLigne(), depart.getColonne()+i).occupe(this.getCouleur()) == true)
+			{
+				break;
+			}
+			if(e.getCase(depart.getLigne() , depart.getColonne() +i).occupe() == false )
+				{deplacementsPossibles.add(new Position(depart.getLigne(),depart.getColonne()+i ));}
+			if( e.getCase(depart.getLigne() , depart.getColonne() +i).occupe(this.oposit()) == true)
+			{
+				deplacementsPossibles.add(new Position(depart.getLigne(),depart.getColonne()+i ));
+				break;
+			}
+		
+			i++;
+			
+		}
+
+		i=1;
+		while( e.getCase(depart.getLigne() , depart.getColonne() -i) != null )
+		{
+			if(e.getCase(depart.getLigne() , depart.getColonne() -i).occupe(this.getCouleur()) == true)
+			{
+				break;
+			}
+			if(e.getCase(depart.getLigne() , depart.getColonne() -i).occupe() == false)
+				{deplacementsPossibles.add(new Position(depart.getLigne(),depart.getColonne()-i ));}
+			if(e.getCase(depart.getLigne() , depart.getColonne() -i).occupe(this.oposit()) == true )
+			{
+				deplacementsPossibles.add(new Position(depart.getLigne(),depart.getColonne()-i ));
+				break;
+			}
+			i++;
+			
+		}
+		System.out.println(deplacementsPossibles.toString());
+
 		
 		return deplacementsPossibles;
 	}

@@ -18,7 +18,11 @@ public class Echiquier{
 	
 	public Case getCase(int ligne,int colonne)
 	{
+		if(ligne<8 && ligne>=0 && colonne<8 && colonne>=0 )
+		{
 		return plateau[ligne][colonne];
+		}
+		return null;
 	}
 	
 	
@@ -35,15 +39,19 @@ public class Echiquier{
 	
 	public boolean conditionValide(Position depart,Position arrive)
 	{
+		if(depart.getCase(this) != null && arrive.getCase(this) != null)
+				if(
+				(depart.getLigne() >= 0 && depart.getLigne() <= 7)
+				&&
+				(depart.getColonne() >= 0 && depart.getColonne() <= 7)
+				&&
+				(arrive.getLigne() >= 0 && arrive.getLigne() <= 7)
+				&&
+				(arrive.getColonne() >= 0 && arrive.getColonne() <= 7)
+				)
+					if(depart.getCase(this).getPiece().deplacementValide(depart, this).contains(arrive))
+						return true;
 		
-		if((this.getPiece(depart) != null))
-		{
-		return  !( 
-				!((depart.getLigne()< 0 || depart.getLigne() > 7) && !(depart.getColonne() < 0 || depart.getColonne() > 7) ) &&
-				!((arrive.getLigne()< 0 || arrive.getLigne() > 7) && !(arrive.getColonne() < 0 || arrive.getColonne() > 7) ) 
-				//(getPiece(depart).deplacementValide(depart,this).contains(arrive))
-				);
-		}
 		return false;
 	}
 	
@@ -56,22 +64,18 @@ public class Echiquier{
 		Position posInit;
 		Position posFinal;
 		Saisie  s;
-		do{
 		s = new Saisie();
+		do{
+		
 		 posInit = s.saisiePositionInit();
 		 posFinal = s.saisiePositionFinale();
+
+		}while(!conditionValide(posInit,posFinal) );
 		
-		}while(!conditionValide(posInit,posFinal));
-		
-		/*
-		for (int i=0;i<getPiece(posInit).deplacementValide(posInit,this).size();i++)
-		{
-			System.out.println(getPiece(posInit).deplacementValide(posInit,this).get(i).toString());
-		}
-		*/
-		
+	
 		this.setPiece(getPiece(posInit),posFinal);
 		this.setPiece(null, posInit);
+		
 	}
 	
 

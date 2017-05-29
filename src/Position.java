@@ -9,8 +9,11 @@ public class Position {
 	
 	public Position(int ligne,int colonne)
 	{
-		this.setLigne(ligne);
-		this.setColonne(colonne);
+		if(ligne<8 && ligne>=0 && colonne<8 && colonne>=0)
+		{
+			this.setLigne(ligne);
+			this.setColonne(colonne);
+		}
 	}
 	
 	public boolean equals(Object o)
@@ -41,11 +44,15 @@ public class Position {
 	
 	public Case getCase(Echiquier e)
 	{
+		if(ligne<8 && ligne>=0 && colonne<8 && colonne>=0)
+		{
 		return e.getCase(this.ligne,this.colonne);
+		}
+		else return null;
 	}
 	
 	public String toString()
 	{
-		return "" + this.ligne + this.colonne;
+		return "" + (char)(this.ligne +65) + (this.colonne + 1);
 	}
 }

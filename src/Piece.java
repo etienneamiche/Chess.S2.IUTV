@@ -16,10 +16,16 @@ public abstract class Piece {
 		{
 			return this.couleur;
 		}
+		public String oposit()
+		{
+			if (this.couleur=="noir") return "blanc";
+			else return "noir";
+			
+		}
 		
 		public abstract String toString();
 		
-		public abstract ArrayList<Position> deplacementValide(Position départ,Echiquier e);
+		public abstract ArrayList<Position> deplacementValide(Position depart,Echiquier e);
 
 	
 		

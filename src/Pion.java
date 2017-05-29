@@ -37,33 +37,69 @@ public class Pion extends Piece{
 		
 		if (this.couleur == "noir")
 		{
-			if(e.getCase(depart.getLigne()+1,depart.getColonne()) == null)
+			if(depart.getLigne()+1<8)
 			{
-				deplacementsPossibles.add( new Position(depart.getLigne()+1,depart.getColonne()) );
-				
-				if (depart.getLigne() == 1 )
+				if(e.getCase(depart.getLigne()+1,depart.getColonne()).occupe() == false)
 				{
-					Position pos2=new Position(depart.getLigne()+2,depart.getColonne());
-					deplacementsPossibles.add(pos2);
+					deplacementsPossibles.add( new Position(depart.getLigne()+1,depart.getColonne()) );
+					
+					if (depart.getLigne() == 1 && (e.getCase(depart.getLigne()+2,depart.getColonne()).occupe() != true))
+					{
+						Position pos2=new Position(depart.getLigne()+2,depart.getColonne());
+						deplacementsPossibles.add(pos2);
+					}
 				}
 			}
-			
-		
-			if(e.getCase(depart.getLigne()+1,depart.getColonne()-1) != null) 
+			if(depart.getLigne()+1<8 && depart.getColonne()-1>=0)
 			{
-				Position pos3 = (new Position(depart.getLigne()+1,depart.getColonne()-1));
-				deplacementsPossibles.add(pos3);
+				if(e.getCase(depart.getLigne()+1,depart.getColonne()-1).occupe("blanc")) 
+				{
+					Position pos3 = (new Position(depart.getLigne()+1,depart.getColonne()-1));
+					deplacementsPossibles.add(pos3);
+				}
 			}
-			
-			if( (e.getCase(depart.getLigne()+1,depart.getColonne()-1) != null) )
-			{
-				Position pos4 = (new Position(depart.getLigne()+1,depart.getColonne()+1));
-				deplacementsPossibles.add(pos4);
-			}
+			if(depart.getLigne() + 1 <7 && depart .getColonne()+1 <8)
+				if( (e.getCase(depart.getLigne()+1,depart.getColonne()+1).occupe("blanc")) )
+				{
+					Position pos4 = (new Position(depart.getLigne()+1,depart.getColonne()+1));
+					deplacementsPossibles.add(pos4);
+				}
 
 		}
+		
+		if (this.couleur == "blanc")
+		{
+			if(depart.getLigne()-1>=0)
+			{
+				if(e.getCase(depart.getLigne()-1,depart.getColonne()).occupe() == false)
+				{
+					deplacementsPossibles.add( new Position(depart.getLigne()-1,depart.getColonne()) );
+					
+					if (depart.getLigne() == 6 && (e.getCase(depart.getLigne()-2,depart.getColonne()).occupe() != true))
+					{
+						Position pos2=new Position(depart.getLigne()-2,depart.getColonne());
+						deplacementsPossibles.add(pos2);
+					}
+				}
+			}
+			if(depart.getLigne()-1>=0 && depart.getColonne()-1>=0)
+			{
+				if(e.getCase(depart.getLigne()-1,depart.getColonne()-1).occupe("noir")) 
+				{
+					Position pos3 = (new Position(depart.getLigne()-1,depart.getColonne()-1));
+					deplacementsPossibles.add(pos3);
+				}
+			}
+			if(depart.getLigne() - 1 >=0 && depart .getColonne()+1 <8)
+				if( (e.getCase(depart.getLigne()-1,depart.getColonne()+1).occupe("noir")) )
+				{
+					Position pos4 = (new Position(depart.getLigne()-1,depart.getColonne()+1));
+					deplacementsPossibles.add(pos4);
+				}
 
-			
+		}
+		
+		System.out.println(deplacementsPossibles.toString());
 		return deplacementsPossibles;
 	}
 

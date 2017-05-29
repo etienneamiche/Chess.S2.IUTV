@@ -23,7 +23,7 @@ public class Cavalier extends Piece{
 	
 	-Si la case d'arrivée est occupée par une pièce de son camp, il ne peut en aucun cas s'y rendre.
 	*/
-	public ArrayList<Position> deplacementValide(Position depart)
+	public ArrayList<Position> deplacementValide(Position depart,Echiquier e)
 	{
 		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
 		
