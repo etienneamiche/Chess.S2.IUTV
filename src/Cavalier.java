@@ -26,8 +26,36 @@ public class Cavalier extends Piece{
 	public ArrayList<Position> deplacementValide(Position depart,Echiquier e)
 	{
 		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
+		if (e.getCase(depart.getLigne()+2, depart.getColonne()+1) != null)
+			deplacementsPossibles.add(new Position(depart.getLigne()+2, depart.getColonne()+1));
 		
+		if (e.getCase(depart.getLigne()+2, depart.getColonne()-1) != null)
+			deplacementsPossibles.add(new Position(depart.getLigne()+2, depart.getColonne()-1));
 		
+		if (e.getCase(depart.getLigne()-2, depart.getColonne()+1) != null)
+			deplacementsPossibles.add(new Position(depart.getLigne()-2, depart.getColonne()+1));
+		
+		if (e.getCase(depart.getLigne()-2, depart.getColonne()-1) != null)
+			deplacementsPossibles.add(new Position(depart.getLigne()-2, depart.getColonne()-1));
+		
+		if (e.getCase(depart.getLigne()+1, depart.getColonne()+2) != null)
+			deplacementsPossibles.add(new Position(depart.getLigne()+1, depart.getColonne()+2));
+		
+		if (e.getCase(depart.getLigne()-1, depart.getColonne()+2) != null)
+			deplacementsPossibles.add(new Position(depart.getLigne()-1, depart.getColonne()+2));
+		
+		if (e.getCase(depart.getLigne()+1, depart.getColonne()-2) != null)
+			deplacementsPossibles.add(new Position(depart.getLigne()+1, depart.getColonne()-2));
+		
+		if (e.getCase(depart.getLigne()-1, depart.getColonne()-2) != null)
+			deplacementsPossibles.add(new Position(depart.getLigne()-1, depart.getColonne()-2));
+		
+		for (int i =0; i<deplacementsPossibles.size();i++)
+		{
+			if(e.getCase(deplacementsPossibles.get(i).getLigne(), deplacementsPossibles.get(i).getColonne()).occupe()) deplacementsPossibles.remove(i);
+		}
+		
+		System.out.println(deplacementsPossibles.toString());
 		return deplacementsPossibles;
 	}
 

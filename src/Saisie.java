@@ -31,7 +31,7 @@ public class Saisie {
 		String str;
 		int i,j;
 			
-				System.out.println("Saisir une position d'arrivés:");
+				System.out.println("Saisir une position d'arrivÃ©e:");
 				str = sc.nextLine();
 			
 				i = ((int) str.charAt(0)) - 65;
