@@ -52,7 +52,7 @@ public class Cavalier extends Piece{
 		
 		for (int i =0; i<deplacementsPossibles.size();i++)
 		{
-			if(e.getCase(deplacementsPossibles.get(i).getLigne(), deplacementsPossibles.get(i).getColonne()).occupe()) deplacementsPossibles.remove(i);
+			if(e.getCase(deplacementsPossibles.get(i).getLigne(), deplacementsPossibles.get(i).getColonne()).occupe(this.getCouleur())) deplacementsPossibles.remove(i);
 		}
 		
 		System.out.println(deplacementsPossibles.toString());
