@@ -27,34 +27,39 @@ public class Roi extends Piece{
 	{
 		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
 		
-		if (e.getCase(depart.getLigne()-1, depart.getColonne()) != null) 			//haut
+		if (e.getCase(depart.getLigne()-1, depart.getColonne()) != null && 
+				e.getCase(depart.getLigne()-1, depart.getColonne()).occupe(this.getCouleur()) == false) 			//haut
 			deplacementsPossibles.add(new Position(depart.getLigne()-1, depart.getColonne()));
 		
-		if (e.getCase(depart.getLigne()+1, depart.getColonne()) != null) 			//bas
+		if (e.getCase(depart.getLigne()+1, depart.getColonne()) != null && 
+				e.getCase(depart.getLigne()+1, depart.getColonne()).occupe(this.getCouleur()) == false) 			//bas
 			deplacementsPossibles.add(new Position(depart.getLigne()+1, depart.getColonne()));
 		
-		if (e.getCase(depart.getLigne(), depart.getColonne()-1) != null) 			//gauche
+		if (e.getCase(depart.getLigne(), depart.getColonne()-1) != null && 
+				e.getCase(depart.getLigne(), depart.getColonne()-1).occupe(this.getCouleur()) == false) 			//gauche
 			deplacementsPossibles.add(new Position(depart.getLigne(), depart.getColonne()-1));
 		
-		if (e.getCase(depart.getLigne(), depart.getColonne()+1) != null) 			//droite
+		if (e.getCase(depart.getLigne(), depart.getColonne()+1) != null && 
+				e.getCase(depart.getLigne(), depart.getColonne()+1).occupe(this.getCouleur()) == false) 			//droite
 			deplacementsPossibles.add(new Position(depart.getLigne(), depart.getColonne()+1));
 		
-		if (e.getCase(depart.getLigne()+1, depart.getColonne()+1) != null) 			//diagonale bas droit
+		if (e.getCase(depart.getLigne()+1, depart.getColonne()+1) != null && 
+				e.getCase(depart.getLigne()+1, depart.getColonne()+1).occupe(this.getCouleur()) == false) 			//diagonale bas droit
 			deplacementsPossibles.add(new Position(depart.getLigne()+1, depart.getColonne()+1));
 		
-		if (e.getCase(depart.getLigne()+1, depart.getColonne()-1) != null) 			//diagonale bas gauche
+		if (e.getCase(depart.getLigne()+1, depart.getColonne()-1) != null && 
+				e.getCase(depart.getLigne()+1, depart.getColonne()-1).occupe(this.getCouleur()) == false) 			//diagonale bas gauche
 			deplacementsPossibles.add(new Position(depart.getLigne()+1, depart.getColonne()-1));
 		
-		if (e.getCase(depart.getLigne()-1, depart.getColonne()+1) != null) 			//diagonale haut droit
+		if (e.getCase(depart.getLigne()-1, depart.getColonne()+1) != null && 
+				e.getCase(depart.getLigne()-1, depart.getColonne()+1).occupe(this.getCouleur()) == false) 			//diagonale haut droit
 			deplacementsPossibles.add(new Position(depart.getLigne()-1, depart.getColonne()+1));
 		
-		if (e.getCase(depart.getLigne()-1, depart.getColonne()-1) != null) 			//diagonale haut gauche
+		if (e.getCase(depart.getLigne()-1, depart.getColonne()-1) != null && 
+				e.getCase(depart.getLigne()-1, depart.getColonne()-1).occupe(this.getCouleur()) == false)			//diagonale haut gauche
 			deplacementsPossibles.add(new Position(depart.getLigne()-1, depart.getColonne()-1));
-		
-		
-		for (int i =0; i<deplacementsPossibles.size();i++)
-		{
-			if(e.getCase(deplacementsPossibles.get(i).getLigne(), deplacementsPossibles.get(i).getColonne()).occupe(this.getCouleur())) deplacementsPossibles.remove(i);
-		}
+
+		return deplacementsPossibles;
+
 	}
 }
