@@ -99,7 +99,6 @@ public class Pion extends Piece{
 
 		}
 		
-		System.out.println(deplacementsPossibles.toString());
 		return deplacementsPossibles;
 	}
 
