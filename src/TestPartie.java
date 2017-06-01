@@ -11,10 +11,10 @@ public class TestPartie {
 	{
 		Echiquier e = new Echiquier();
 		Affichage a = new Affichage();
-		File f = new File("/home/armen/eclipse-workspace/Projet Echecs/save.txt");
+		File f = new File("../save.txt");
 		int i = 0;
 		e.remplir();
-		
+		e.charger(f);
 		while(i<7)
 		{
 				a.afficher(e);

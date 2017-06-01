@@ -84,20 +84,74 @@ public class Echiquier{
 		try
 		{
 			FileWriter fw = new FileWriter(f);
+			String s = "";
 			for(int x = 0 ; x < 8;x++)
 			{
 				for(int y = 0 ; y < 8;y++)
 				{
-					fw.write(this.getCase(x, y).toString());
-					fw.write("\n");
+					s += this.getCase(x, y).toString();
 				}
 			}
+			fw.write(s);
 			fw.close();
 			
 		}
 		catch (IOException e)
 		{
 			System.out.println ("Erreur lors de la lecture : " + e.getMessage());
+		}
+	}
+	
+	public void charger(File f){
+		try
+		{
+		    FileReader fr = new FileReader (f);
+		    int c = fr.read();
+		    this.vider();
+		    for(int x = 0 ; x < 8;x++)
+			{
+				for(int y = 0 ; y < 8;y++)
+				{
+					if((char) c == '\u2659') plateau[x][y].setPiece(new Pion("noir")); 				//Pion NOIR
+					else if((char) c == '\u265F') plateau[x][y].setPiece(new Pion("blanc")); 		//Pion BLANC
+					
+					else if((char) c == '\u2656') plateau[x][y].setPiece(new Tour("noir"));			//Tour NOIRE
+					else if((char) c == '\u265C') plateau[x][y].setPiece(new Tour("blanc"));		//Tour BLANCHE
+					
+					else if((char) c == '\u2658') plateau[x][y].setPiece(new Cavalier("noir"));		//Cavalier NOIR
+					else if((char) c == '\u265E') plateau[x][y].setPiece(new Cavalier("blanc"));	//Cavalier BLANC
+					
+					else if((char) c == '\u2657') plateau[x][y].setPiece(new Fou("noir"));			//Fou NOIR
+					else if((char) c == '\u265F') plateau[x][y].setPiece(new Fou("blanc"));			//Fou BLANC
+					
+					else if((char) c == '\u2654') plateau[x][y].setPiece(new Roi("noir"));			//Roi NOIR
+					else if((char) c == '\u265A') plateau[x][y].setPiece(new Roi("blanc"));			//Roi BLANC
+					
+					else if((char) c == '\u2655') plateau[x][y].setPiece(new Dame("noir"));			//Dame NOIRE
+					else if((char) c == '\u265B') plateau[x][y].setPiece(new Dame("blanc"));		//Dame BLANCHE
+					
+					c = fr.read();
+				}
+			}
+		    fr.close();
+		}
+		catch (FileNotFoundException e)
+		{
+		    System.out.println ("Le fichier n'a pas été trouvé" + e.getMessage());
+		}
+		catch (IOException e)
+		{
+			System.out.println ("Erreur lors de la lecture : " + e.getMessage());
+		}
+	}
+	
+	public void vider(){
+		for(int x = 0 ; x < 8;x++)
+		{
+			for(int y = 0 ; y < 8;y++)
+			{
+				plateau[x][y].setPiece(null);
+			}
 		}
 	}
 	
