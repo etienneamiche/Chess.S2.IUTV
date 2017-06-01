@@ -12,14 +12,16 @@ public class Saisie {
 		Scanner sc = new Scanner(System.in);
 		String str;
 		int i,j;
-	
+		do{
 		System.out.println("Saisir une position dÃ©part:");
 		str = sc.nextLine();
 	
 		i = ((int) str.charAt(0)) - 65;
 	
 		j = (int) str.charAt(1)-49; 
+		System.out.println(i + " " +j);
 
+		}while(str.length()>2);
 		
 		return new Position(i,j);
 		
@@ -30,13 +32,14 @@ public class Saisie {
 		Scanner sc = new Scanner(System.in);
 		String str;
 		int i,j;
-			
-				System.out.println("Saisir une position d'arrivés:");
+			do{
+				System.out.println("Saisir une position d'arrivï¿½s:");
 				str = sc.nextLine();
 			
 				i = ((int) str.charAt(0)) - 65;
 				j = (int) str.charAt(1)-49; 
-			
+				System.out.println(i + " " +j);
+			}while(str.length()>2);
 			return new Position(i,j);
 	
 		 		
