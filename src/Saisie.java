@@ -34,9 +34,6 @@ public class Saisie {
 		int i,j;
 
 			do{
-				System.out.println("Saisir une position d'arriv�s:");
-
-			
 				System.out.println("Saisir une position d'arrivée:");
 				str = sc.nextLine();
 			
