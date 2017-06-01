@@ -75,7 +75,7 @@ public class Echiquier{
 	
 		this.setPiece(getPiece(posInit),posFinal);
 		this.setPiece(null, posInit);
-		this.getPiece(posFinal).estEchec(posFinal, this);
+		//this.getPiece(posFinal).estEchec(posFinal, this);
 		
 	}
 	

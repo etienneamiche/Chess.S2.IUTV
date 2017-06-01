@@ -51,14 +51,10 @@ public class Roi extends Piece{
 		if (e.getCase(depart.getLigne()-1, depart.getColonne()-1) != null) 			//diagonale haut gauche
 			deplacementsPossibles.add(new Position(depart.getLigne()-1, depart.getColonne()-1));
 		
+		
 		for (int i =0; i<deplacementsPossibles.size();i++)
 		{
 			if(e.getCase(deplacementsPossibles.get(i).getLigne(), deplacementsPossibles.get(i).getColonne()).occupe(this.getCouleur())) deplacementsPossibles.remove(i);
 		}
-		
-		System.out.println(deplacementsPossibles.toString());
-		
-		return deplacementsPossibles;
 	}
-
 }
