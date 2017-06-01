@@ -59,8 +59,6 @@ public class Roi extends Piece{
 				e.getCase(depart.getLigne()-1, depart.getColonne()-1).occupe(this.getCouleur()) == false)			//diagonale haut gauche
 			deplacementsPossibles.add(new Position(depart.getLigne()-1, depart.getColonne()-1));
 		
-		System.out.println(deplacementsPossibles.toString());
-		
 		return deplacementsPossibles;
 	}
 

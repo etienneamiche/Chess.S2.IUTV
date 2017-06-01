@@ -169,8 +169,6 @@ public class Dame extends Piece{
 			i++;
 			
 		}
-		System.out.println(deplacementsPossibles.toString());
-
 		
 		return deplacementsPossibles;
 	}

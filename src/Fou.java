@@ -101,9 +101,6 @@ public class Fou extends Piece{
 			
 		}
 		
-		
-		System.out.println(deplacementsPossibles.toString());
-		
 		return deplacementsPossibles;
 	}
 
