@@ -27,6 +27,36 @@ public class Roi extends Piece{
 	{
 		ArrayList<Position> deplacementsPossibles = new ArrayList<Position>();
 		
+		if (e.getCase(depart.getLigne()-1, depart.getColonne()) != null) 			//haut
+			deplacementsPossibles.add(new Position(depart.getLigne()-1, depart.getColonne()));
+		
+		if (e.getCase(depart.getLigne()+1, depart.getColonne()) != null) 			//bas
+			deplacementsPossibles.add(new Position(depart.getLigne()+1, depart.getColonne()));
+		
+		if (e.getCase(depart.getLigne(), depart.getColonne()-1) != null) 			//gauche
+			deplacementsPossibles.add(new Position(depart.getLigne(), depart.getColonne()-1));
+		
+		if (e.getCase(depart.getLigne(), depart.getColonne()+1) != null) 			//droite
+			deplacementsPossibles.add(new Position(depart.getLigne(), depart.getColonne()+1));
+		
+		if (e.getCase(depart.getLigne()+1, depart.getColonne()+1) != null) 			//diagonale bas droit
+			deplacementsPossibles.add(new Position(depart.getLigne()+1, depart.getColonne()+1));
+		
+		if (e.getCase(depart.getLigne()+1, depart.getColonne()-1) != null) 			//diagonale bas gauche
+			deplacementsPossibles.add(new Position(depart.getLigne()+1, depart.getColonne()-1));
+		
+		if (e.getCase(depart.getLigne()-1, depart.getColonne()+1) != null) 			//diagonale haut droit
+			deplacementsPossibles.add(new Position(depart.getLigne()-1, depart.getColonne()+1));
+		
+		if (e.getCase(depart.getLigne()-1, depart.getColonne()-1) != null) 			//diagonale haut gauche
+			deplacementsPossibles.add(new Position(depart.getLigne()-1, depart.getColonne()-1));
+		
+		for (int i =0; i<deplacementsPossibles.size();i++)
+		{
+			if(e.getCase(deplacementsPossibles.get(i).getLigne(), deplacementsPossibles.get(i).getColonne()).occupe(this.getCouleur())) deplacementsPossibles.remove(i);
+		}
+		
+		System.out.println(deplacementsPossibles.toString());
 		
 		return deplacementsPossibles;
 	}

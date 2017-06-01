@@ -32,8 +32,12 @@ public class Saisie {
 		Scanner sc = new Scanner(System.in);
 		String str;
 		int i,j;
+
 			do{
 				System.out.println("Saisir une position d'arriv�s:");
+
+			
+				System.out.println("Saisir une position d'arrivée:");
 				str = sc.nextLine();
 			
 				i = ((int) str.charAt(0)) - 65;

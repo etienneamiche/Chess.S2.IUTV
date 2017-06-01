@@ -20,14 +20,32 @@ public abstract class Piece {
 		{
 			if (this.couleur=="noir") return "blanc";
 			else return "noir";
-			
 		}
 		
 		public abstract String toString();
 		
 		public abstract ArrayList<Position> deplacementValide(Position depart,Echiquier e);
 
-	
+		public boolean estEchec(Position actuelle, Echiquier e){ 
+			for(int x = 0 ; x < 8;x++)
+			{
+				for(int y = 0 ; y < 8;y++)
+				{
+					if(e.getCase(x, y).occupe(this.oposit()))
+					{
+						Piece p = e.getCase(x,y).getPiece();
+						Position posP = new Position(x,y);
+						for (int i =0; i < p.deplacementValide(posP, e).size();i++)
+						{
+							Position possibles = p.deplacementValide(posP, e).get(i);
+							if(possibles == actuelle) {System.out.println("Echec");return true;}
+						}
+					}
+				}
+			}
+			System.out.println("Pas Echec");
+			return false;
+		}
 		
 
 		
