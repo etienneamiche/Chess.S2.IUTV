@@ -1,3 +1,4 @@
+import java.io.*;
 
 public class Echiquier{
 	
@@ -79,8 +80,26 @@ public class Echiquier{
 		
 	}
 	
-
-	
+	public void sauvegarder(File f){
+		try
+		{
+			FileWriter fw = new FileWriter(f);
+			for(int x = 0 ; x < 8;x++)
+			{
+				for(int y = 0 ; y < 8;y++)
+				{
+					fw.write(this.getCase(x, y).toString());
+					fw.write("\n");
+				}
+			}
+			fw.close();
+			
+		}
+		catch (IOException e)
+		{
+			System.out.println ("Erreur lors de la lecture : " + e.getMessage());
+		}
+	}
 	
 	public void remplir() {
 		
