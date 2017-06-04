@@ -19,10 +19,7 @@ public class Saisie {
 		i = ((int) str.charAt(0)) - 65;
 	
 		j = (int) str.charAt(1)-49; 
-		System.out.println(i + " " +j);
-
 		}while(str.length()>2);
-		
 		return new Position(i,j);
 		
 	}
@@ -39,10 +36,7 @@ public class Saisie {
 			
 				i = ((int) str.charAt(0)) - 65;
 				j = (int) str.charAt(1)-49; 
-				System.out.println(i + " " +j);
 			}while(str.length()>2);
-			return new Position(i,j);
-	
-		 		
+			return new Position(i,j); 		
 	}
 }

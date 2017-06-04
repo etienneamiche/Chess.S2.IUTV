@@ -46,7 +46,7 @@ public class Position {
 	{
 		if(ligne<8 && ligne>=0 && colonne<8 && colonne>=0)
 		{
-		return e.getCase(this.ligne,this.colonne);
+			return e.getCase(this.ligne,this.colonne);
 		}
 		else return null;
 	}
