@@ -11,7 +11,7 @@ public class Tour extends Piece{
 	
 	public String toString()
 	{
-		if (this.couleur=="blanc") return "\u265C";
+		if (this.couleur=="noir") return "\u265C";
 		else return "\u2656";
 	}
 

@@ -59,7 +59,7 @@ public class Echiquier{
 		return false;
 	}
 	
-	public int Deplacer()
+	public int Deplacer(String couleur)
 	{
 		//VERIFIER QUE LE DEPLACEMENT EST VALIDE
 		/* comparer le Depacement a l'ArrayList de la piece Selectionée
@@ -89,7 +89,9 @@ public class Echiquier{
 
 		}while(!conditionValide(posInit,posFinal) );
 		
-		this.getPiece(posInit).estEchec2(posFinal, this);
+
+		if ((getPiece(posInit).getCouleur()) != couleur) return 0;
+
 		
 		this.setPiece(getPiece(posInit),posFinal);
 		this.setPiece(null, posInit);
