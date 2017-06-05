@@ -12,7 +12,6 @@ public class Saisie {
 	{
 		Scanner sc = new Scanner(System.in);
 		String str;
-		String sa = "sa";
 		int i=0,j=0;
 		do{
 			a.afficher("Saisir une position départ:");

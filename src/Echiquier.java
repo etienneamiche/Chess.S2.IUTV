@@ -59,7 +59,7 @@ public class Echiquier{
 		return false;
 	}
 	
-	public int Deplacer(String couleur)
+	public int deplacer(String couleur, Boolean tourBlanc)
 	{
 		//VERIFIER QUE LE DEPLACEMENT EST VALIDE
 		/* comparer le Depacement a l'ArrayList de la piece Selectionée
@@ -73,17 +73,16 @@ public class Echiquier{
 			posInit = s.saisiePositionInit();
 			if (posInit.getColonne() == -1 && posInit.getLigne() == -1)
 			{
-				this.sauvegarder(f);
-				a.afficher("Partie Sauvegardée");
+				this.sauvegarder(f,tourBlanc);
+				a.afficher("=== Partie Sauvegardée ===");
 				return -1;
 			}
 			
 			if (posInit.getColonne() == -2 && posInit.getLigne() == -2)
 			{
-				this.charger(f);
-				a.afficher("Partie Chargée");
-				a.afficher(this);
-				return -2;
+				int tour = this.charger(f);
+				a.afficher("\n=== Partie Chargée ===\n");
+				return (tour - 3);							//Retourne -2 si tour des blancs, -3 si tours des noirs
 			}
 				
 			posFinal = s.saisiePositionFinale();
@@ -100,7 +99,6 @@ public class Echiquier{
 			this.setPiece(null, posFinal);
 			return 0;
 		}
-		
 		
 		this.setPiece(null, posInit);
 		
@@ -127,7 +125,7 @@ public class Echiquier{
 		return null;
 	}
 	
-	public void sauvegarder(File f){
+	public void sauvegarder(File f, Boolean tourBlanc){
 		try
 		{
 			FileWriter fw = new FileWriter(f);
@@ -139,6 +137,8 @@ public class Echiquier{
 					s += this.getCase(x, y).toString();
 				}
 			}
+			if (tourBlanc) s += "1";
+			else s += "0";
 			fw.write(s);
 			fw.close();
 			
@@ -149,7 +149,7 @@ public class Echiquier{
 		}
 	}
 	
-	public void charger(File f){
+	public int charger(File f){
 		try
 		{
 		    FileReader fr = new FileReader (f);
@@ -181,14 +181,17 @@ public class Echiquier{
 				}
 			}
 		    fr.close();
+		    return c - 48;
 		}
 		catch (FileNotFoundException e)
 		{
 			a.afficher("Le fichier n'a pas été trouvé" + e.getMessage());
+			return -1;
 		}
 		catch (IOException e)
 		{
 			a.afficher("Erreur lors de la lecture : " + e.getMessage());
+			return -1;
 		}
 	}
 	

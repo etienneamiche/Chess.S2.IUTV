@@ -17,16 +17,26 @@ public class Partie {
 		if (tourBlanc)
 		{
 			do{
-				a.afficher("Au tour des blancs :");
-				verif = e.Deplacer("blanc");
+				a.afficher("\nAu tour des blancs :");
+				verif = e.deplacer("blanc",tourBlanc);
+				if (verif == -3)
+				{
+					tourBlanc = false;
+					return;
+				}
 			}while (verif != 1);
 			tourBlanc = false;
 		}
 		else
 		{
 			do{
-				a.afficher("Au tour des noirs :");
-				verif = e.Deplacer("noir");
+				a.afficher("\nAu tour des noirs :");
+				verif = e.deplacer("noir",tourBlanc);
+				if (verif == -2)
+				{
+					tourBlanc = true;
+					return;
+				}
 			}while (verif != 1);
 			tourBlanc = true;
 		}
