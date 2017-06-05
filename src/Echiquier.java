@@ -82,23 +82,49 @@ public class Echiquier{
 			{
 				this.charger(f);
 				a.afficher("Partie Chargée");
+				a.afficher(this);
 				return -2;
 			}
 				
 			posFinal = s.saisiePositionFinale();
 
 		}while(!conditionValide(posInit,posFinal) );
-		
 
 		if ((getPiece(posInit).getCouleur()) != couleur) return 0;
-
-		this.getPiece(posInit).estEchec2(posInit, this);
+		//else if (echecRoi()) return 0;
 		
 		this.setPiece(getPiece(posInit),posFinal);
+		if (echecRoi() == couleur)
+		{
+			this.setPiece(getPiece(posFinal),posInit);
+			this.setPiece(null, posFinal);
+			return 0;
+		}
+		
+		
 		this.setPiece(null, posInit);
-		//this.getPiece(posFinal).estEchec(posFinal, this);
+		
 		return 1;
 		
+	}
+	
+	public String echecRoi(){
+		for(int x = 0 ; x < 8;x++)
+		{
+			for(int y = 0 ; y < 8;y++)
+			{
+				if((this.getCase(x, y).occupe()) && (this.getCase(x, y).getPiece().getNom() == "roi"))
+				{
+					if (this.getCase(x, y).getPiece().estEchec(new Position(x,y),this))
+					{
+						String couleur = this.getCase(x, y).getPiece().getCouleur();
+						a.afficher("Echec au roi " + couleur);
+						return couleur;
+					}
+				}
+			}
+		}
+		return null;
 	}
 	
 	public void sauvegarder(File f){
@@ -133,23 +159,23 @@ public class Echiquier{
 			{
 				for(int y = 0 ; y < 8;y++)
 				{
-					if((char) c == '\u2659') plateau[x][y].setPiece(new Pion("noir")); 				//Pion NOIR
-					else if((char) c == '\u265F') plateau[x][y].setPiece(new Pion("blanc")); 		//Pion BLANC
+					if((char) c == '\u2659') plateau[x][y].setPiece(new Pion("blanc")); 				
+					else if((char) c == '\u265F') plateau[x][y].setPiece(new Pion("noir")); 	
 					
-					else if((char) c == '\u2656') plateau[x][y].setPiece(new Tour("noir"));			//Tour NOIRE
-					else if((char) c == '\u265C') plateau[x][y].setPiece(new Tour("blanc"));		//Tour BLANCHE
+					else if((char) c == '\u2656') plateau[x][y].setPiece(new Tour("blanc"));		
+					else if((char) c == '\u265C') plateau[x][y].setPiece(new Tour("noir"));		
 					
-					else if((char) c == '\u2658') plateau[x][y].setPiece(new Cavalier("noir"));		//Cavalier NOIR
-					else if((char) c == '\u265E') plateau[x][y].setPiece(new Cavalier("blanc"));	//Cavalier BLANC
+					else if((char) c == '\u2658') plateau[x][y].setPiece(new Cavalier("blanc"));		
+					else if((char) c == '\u265E') plateau[x][y].setPiece(new Cavalier("noir"));
 					
-					else if((char) c == '\u2657') plateau[x][y].setPiece(new Fou("noir"));			//Fou NOIR
-					else if((char) c == '\u265F') plateau[x][y].setPiece(new Fou("blanc"));			//Fou BLANC
+					else if((char) c == '\u2657') plateau[x][y].setPiece(new Fou("blanc"));			
+					else if((char) c == '\u265F') plateau[x][y].setPiece(new Fou("noir"));			
 					
-					else if((char) c == '\u2654') plateau[x][y].setPiece(new Roi("noir"));			//Roi NOIR
-					else if((char) c == '\u265A') plateau[x][y].setPiece(new Roi("blanc"));			//Roi BLANC
+					else if((char) c == '\u2654') plateau[x][y].setPiece(new Roi("blanc"));		
+					else if((char) c == '\u265A') plateau[x][y].setPiece(new Roi("noir"));			
 					
-					else if((char) c == '\u2655') plateau[x][y].setPiece(new Dame("noir"));			//Dame NOIRE
-					else if((char) c == '\u265B') plateau[x][y].setPiece(new Dame("blanc"));		//Dame BLANCHE
+					else if((char) c == '\u2655') plateau[x][y].setPiece(new Dame("blanc"));	
+					else if((char) c == '\u265B') plateau[x][y].setPiece(new Dame("noir"));	
 					
 					c = fr.read();
 				}

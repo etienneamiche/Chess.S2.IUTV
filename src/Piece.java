@@ -24,7 +24,7 @@ public abstract class Piece {
 		
 		public abstract ArrayList<Position> deplacementValide(Position depart,Echiquier e);
 
-		public boolean estEchec2(Position actuelle, Echiquier e){ 
+		/*public boolean estEchec2(Position actuelle, Echiquier e){ 
 			for(int x = 0 ; x < 8;x++)
 			{
 				for(int y = 0 ; y < 8;y++)
@@ -43,7 +43,7 @@ public abstract class Piece {
 			}
 			System.out.println("Pas Echec");
 			return false;
-		}
+		}*/
 		
 		public boolean estEchec(Position init, Echiquier e){ 
 			
@@ -61,20 +61,15 @@ public abstract class Piece {
 						for (int i =0; i < p.deplacementValide(posP, e).size();i++)
 						{
 							liste.add(p.deplacementValide(posP, e).get(i));
-							
 						}
-						
-						
 					}
 				}
 				
 			}
-			System.out.println(liste.toString());
-			if (liste.contains(init)) {System.out.println("Echec");
-			
+			if (liste.contains(init)) {//System.out.println("Echec");
 				return true;}
 			
-			System.out.println("Pas Echec");
+			//System.out.println("Pas Echec");
 			return false;
 		}
 		
