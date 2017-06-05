@@ -2,6 +2,7 @@
 import java.util.Scanner;
 
 public class Saisie {
+	private Affichage a = new Affichage();
 
 	public Saisie(){
 		
@@ -11,16 +12,20 @@ public class Saisie {
 	{
 		Scanner sc = new Scanner(System.in);
 		String str;
-		int i,j;
+		String sa = "sa";
+		int i=0,j=0;
 		do{
-		System.out.println("Saisir une position départ:");
-		str = sc.nextLine();
+			a.afficher("Saisir une position départ:");
+			str = sc.nextLine();
 	
-		i = ((int) str.charAt(0)) - 65;
+			i = ((int) str.charAt(0)) - 65;
 	
-		j = (int) str.charAt(1)-49; 
+			j = (int) str.charAt(1)-49; 
 		}while(str.length()>2);
-		return new Position(i,j);
+		
+		if (i == 50 && j == 48) return new Position(-1,-1); // sa = sauvegarder
+		else if (i == 34 && j == 55) return new Position(-2,-2); // ch = charger
+		else return new Position(i,j);
 		
 	}
 	
@@ -31,7 +36,7 @@ public class Saisie {
 		int i,j;
 
 			do{
-				System.out.println("Saisir une position d'arrivée:");
+				a.afficher("Saisir une position d'arrivée:");
 				str = sc.nextLine();
 			
 				i = ((int) str.charAt(0)) - 65;

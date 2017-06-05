@@ -9,11 +9,11 @@ public class Position {
 	
 	public Position(int ligne,int colonne)
 	{
-		if(ligne<8 && ligne>=0 && colonne<8 && colonne>=0)
-		{
+		//if(ligne<8 && ligne>=0 && colonne<8 && colonne>=0) //CA SERT VRAIMENT CA ?
+		//{
 			this.setLigne(ligne);
 			this.setColonne(colonne);
-		}
+		//}
 	}
 	
 	public boolean equals(Object o)
