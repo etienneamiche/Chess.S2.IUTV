@@ -11,16 +11,16 @@ public class TestPartie {
 	{
 		Echiquier e = new Echiquier();
 		Affichage a = new Affichage();
-		File f = new File("../save.txt");
+		//File f = new File("../save.txt");
 		int i = 0;
 		e.remplir();
-		e.charger(f);
+		//e.charger(f);
 		while(i<7)
 		{
 				a.afficher(e);
 				e.Deplacer();
 				i++;
-				e.sauvegarder(f);
+				//e.sauvegarder(f);
 		}
 
 	}

@@ -3,6 +3,8 @@ import java.io.*;
 public class Echiquier{
 	
 	private Case[][] plateau;
+	private File f;
+	private Affichage a = new Affichage();
 	
 	public Echiquier()
 	{
@@ -10,6 +12,7 @@ public class Echiquier{
 		for(int i=0 ; i<8 ; i++)
 			for(int j=0; j<8; j++)
 			plateau[i][j] = new Case();
+		this.f = new File("../save.txt");
 	}
 	
 	public Case[][] getPlateau()
@@ -56,27 +59,41 @@ public class Echiquier{
 		return false;
 	}
 	
-	public void Deplacer()
+	public int Deplacer()
 	{
 		//VERIFIER QUE LE DEPLACEMENT EST VALIDE
 		/* comparer le Depacement a l'ArrayList de la piece Selectionée
 		 */
-		
 		Position posInit;
 		Position posFinal;
 		Saisie  s;
 		s = new Saisie();
 		do{
-		
-		 posInit = s.saisiePositionInit();
-		 posFinal = s.saisiePositionFinale();
+
+			posInit = s.saisiePositionInit();
+			if (posInit.getColonne() == -1 && posInit.getLigne() == -1)
+			{
+				this.sauvegarder(f);
+				a.afficher("Partie Sauvegardée");
+				return -1;
+			}
+			
+			if (posInit.getColonne() == -2 && posInit.getLigne() == -2)
+			{
+				this.charger(f);
+				a.afficher("Partie Chargée");
+				return -2;
+			}
+				
+			posFinal = s.saisiePositionFinale();
 
 		}while(!conditionValide(posInit,posFinal) );
 		
-	
+		
 		this.setPiece(getPiece(posInit),posFinal);
 		this.setPiece(null, posInit);
 		//this.getPiece(posFinal).estEchec(posFinal, this);
+		return 1;
 		
 	}
 	
@@ -98,7 +115,7 @@ public class Echiquier{
 		}
 		catch (IOException e)
 		{
-			System.out.println ("Erreur lors de la lecture : " + e.getMessage());
+			a.afficher("Erreur lors de la lecture : " + e.getMessage());
 		}
 	}
 	
@@ -137,11 +154,11 @@ public class Echiquier{
 		}
 		catch (FileNotFoundException e)
 		{
-		    System.out.println ("Le fichier n'a pas été trouvé" + e.getMessage());
+			a.afficher("Le fichier n'a pas été trouvé" + e.getMessage());
 		}
 		catch (IOException e)
 		{
-			System.out.println ("Erreur lors de la lecture : " + e.getMessage());
+			a.afficher("Erreur lors de la lecture : " + e.getMessage());
 		}
 	}
 	
