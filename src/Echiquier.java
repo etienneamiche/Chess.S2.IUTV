@@ -89,6 +89,7 @@ public class Echiquier{
 
 		}while(!conditionValide(posInit,posFinal) );
 		
+		this.getPiece(posInit).estEchec2(posFinal, this);
 		
 		this.setPiece(getPiece(posInit),posFinal);
 		this.setPiece(null, posInit);

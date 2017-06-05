@@ -47,6 +47,41 @@ public abstract class Piece {
 			return false;
 		}
 		
+		public boolean estEchec2(Position arrive, Echiquier e){ 
+			
+			ArrayList<Position> liste = new ArrayList<Position>();
+			
+			for(int x = 0 ; x < 8;x++)
+			{
+				for(int y = 0 ; y < 8;y++)
+				{
+					if(e.getCase(x, y).occupe(this.oposit()))
+					{
+						Piece p = e.getCase(x,y).getPiece();
+						Position posP = new Position(x,y);
+						
+						for (int i =0; i < p.deplacementValide(posP, e).size();i++)
+						{
+							liste.add(p.deplacementValide(posP, e).get(i));
+							
+						}
+						
+						
+					}
+				}
+				
+			}
+			System.out.println(liste.toString());
+			if (liste.contains(arrive)) {System.out.println("Echec");
+			
+				return true;}
+			
+			System.out.println("Pas Echec");
+			return false;
+		}
+		
+		
+		
 
 		
 		
