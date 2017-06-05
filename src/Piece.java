@@ -45,7 +45,7 @@ public abstract class Piece {
 			return false;
 		}
 		
-		public boolean estEchec2(Position arrive, Echiquier e){ 
+		public boolean estEchec2(Position init, Echiquier e){ 
 			
 			ArrayList<Position> liste = new ArrayList<Position>();
 			
@@ -70,7 +70,7 @@ public abstract class Piece {
 				
 			}
 			System.out.println(liste.toString());
-			if (liste.contains(arrive)) {System.out.println("Echec");
+			if (liste.contains(init)) {System.out.println("Echec");
 			
 				return true;}
 			
