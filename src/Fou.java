@@ -10,7 +10,7 @@ public class Fou extends Piece{
 	}
 	public String toString()
 	{
-		if (this.couleur=="noir") return "\u2657";
+		if (this.couleur=="blanc") return "\u2657";
 		else return "\u265F";
 	}
 	/*

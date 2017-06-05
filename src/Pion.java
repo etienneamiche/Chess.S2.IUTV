@@ -13,7 +13,7 @@ public class Pion extends Piece{
 	
 	public String toString()
 	{
-		if (this.couleur=="noir") return "\u2659";
+		if (this.couleur=="blanc") return "\u2659";
 		else return "\u265F";
 	}
 /*
