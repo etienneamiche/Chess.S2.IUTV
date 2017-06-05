@@ -24,7 +24,7 @@ public abstract class Piece {
 		
 		public abstract ArrayList<Position> deplacementValide(Position depart,Echiquier e);
 
-		public boolean estEchec(Position actuelle, Echiquier e){ 
+		public boolean estEchec2(Position actuelle, Echiquier e){ 
 			for(int x = 0 ; x < 8;x++)
 			{
 				for(int y = 0 ; y < 8;y++)
@@ -45,7 +45,7 @@ public abstract class Piece {
 			return false;
 		}
 		
-		public boolean estEchec2(Position init, Echiquier e){ 
+		public boolean estEchec(Position init, Echiquier e){ 
 			
 			ArrayList<Position> liste = new ArrayList<Position>();
 			

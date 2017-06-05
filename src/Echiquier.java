@@ -92,7 +92,7 @@ public class Echiquier{
 
 		if ((getPiece(posInit).getCouleur()) != couleur) return 0;
 
-		this.getPiece(posInit).estEchec2(posFinal, this);
+		this.getPiece(posInit).estEchec2(posInit, this);
 		
 		this.setPiece(getPiece(posInit),posFinal);
 		this.setPiece(null, posInit);
