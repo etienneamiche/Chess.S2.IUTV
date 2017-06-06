@@ -19,7 +19,8 @@ public class Partie {
 			do{
 				a.afficher("\nAu tour des blancs :");
 				verif = e.deplacer("blanc",tourBlanc);
-				if (verif == -3)
+				if (verif == -2) return;
+				else if (verif == -3)
 				{
 					tourBlanc = false;
 					return;
@@ -32,7 +33,8 @@ public class Partie {
 			do{
 				a.afficher("\nAu tour des noirs :");
 				verif = e.deplacer("noir",tourBlanc);
-				if (verif == -2)
+				if (verif == -3) return;
+				else if (verif == -2)
 				{
 					tourBlanc = true;
 					return;
