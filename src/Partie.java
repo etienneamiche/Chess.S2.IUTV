@@ -45,10 +45,10 @@ public class Partie {
 	}
 	
 	public void jeu(){
-		boolean partie = true;
+		//boolean partie = true;
 		do{
 			tourDeJeu();
 			a.afficher(e);
-		}while (partie);
+		}while (e.echecEtMat() == false);
 	}	
 }

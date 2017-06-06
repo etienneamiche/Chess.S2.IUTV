@@ -90,17 +90,16 @@ public class Echiquier{
 		}while(!conditionValide(posInit,posFinal) );
 
 		if ((getPiece(posInit).getCouleur()) != couleur) return 0;
-		//else if (echecRoi()) return 0;
 		
 		this.setPiece(getPiece(posInit),posFinal);
+		this.setPiece(null, posInit);
 		if (echecRoi() == couleur)
 		{
+			a.afficher("Echec au roi " + couleur);
 			this.setPiece(getPiece(posFinal),posInit);
 			this.setPiece(null, posFinal);
 			return 0;
 		}
-		
-		this.setPiece(null, posInit);
 		
 		return 1;
 		
@@ -116,13 +115,98 @@ public class Echiquier{
 					if (this.getCase(x, y).getPiece().estEchec(new Position(x,y),this))
 					{
 						String couleur = this.getCase(x, y).getPiece().getCouleur();
-						a.afficher("Echec au roi " + couleur);
 						return couleur;
 					}
 				}
 			}
 		}
 		return null;
+	}
+	
+	public boolean echecEtMat(){
+		if (echecRoi() == "blanc" || echecRoi() == "noir"){
+			if (echecRoi() == "blanc"){
+				for(int x = 0 ; x < 8;x++)
+				{
+					for(int y = 0 ; y < 8;y++)
+					{
+						if ((this.getCase(x, y).occupe()) && (this.getCase(x, y).getPiece().getNom() == "roi") && (this.getCase(x, y).getPiece().getCouleur() == "blanc")) {
+							Piece roi = this.getCase(x, y).getPiece();
+							Position p = new Position(x,y);
+							int compteur = 0;
+							for (int i = 0; i < roi.deplacementValide(p, this).size();i++)
+							{
+								Position posFinal = roi.deplacementValide(p, this).get(i);
+								Piece tmp = null;
+								if (posFinal.getCase(this).getPiece() != null) tmp = posFinal.getCase(this).getPiece();
+								this.setPiece(getPiece(p),posFinal);
+								this.setPiece(null, p);
+								if (echecRoi() == "blanc")
+								{
+									this.setPiece(getPiece(posFinal),p);
+									this.setPiece(null, posFinal);
+									compteur++;
+								}
+								else
+								{
+									this.setPiece(getPiece(posFinal),p);
+									this.setPiece(null, posFinal);
+								}
+								if (tmp != null){
+									this.setPiece(tmp, posFinal);
+								}
+							}
+							if (compteur == roi.deplacementValide(p, this).size()){
+								a.afficher("Echecs et Mat ! Noir a gagné !");
+								return true;
+							}
+						}
+							
+					}
+				}
+			}
+			if (echecRoi() == "noir"){
+				for(int x = 0 ; x < 8;x++)
+				{
+					for(int y = 0 ; y < 8;y++)
+					{
+						if ((this.getCase(x, y).occupe()) && (this.getCase(x, y).getPiece().getNom() == "roi") && (this.getCase(x, y).getPiece().getCouleur() == "noir")) {
+							Piece roi = this.getCase(x, y).getPiece();
+							Position p = new Position(x,y);
+							int compteur = 0;
+							for (int i = 0; i < roi.deplacementValide(p, this).size();i++)
+							{
+								Position posFinal = roi.deplacementValide(p, this).get(i);
+								Piece tmp = null;
+								if (posFinal.getCase(this).getPiece() != null) tmp = posFinal.getCase(this).getPiece();
+								this.setPiece(getPiece(p),posFinal);
+								this.setPiece(null, p);
+								if (echecRoi() == "noir")
+								{
+									this.setPiece(getPiece(posFinal),p);
+									this.setPiece(null, posFinal);
+									compteur++;
+								}
+								else
+								{
+									this.setPiece(getPiece(posFinal),p);
+									this.setPiece(null, posFinal);
+								}
+								if (tmp != null){
+									this.setPiece(tmp, posFinal);
+								}
+							}
+							if (compteur == roi.deplacementValide(p, this).size()){
+								a.afficher("Echecs et Mat ! Blanc a gagné !");
+								return true;
+							}
+						}
+							
+					}
+				}
+			}
+		}
+		return false;
 	}
 	
 	public void sauvegarder(File f, Boolean tourBlanc){
