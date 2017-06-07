@@ -43,7 +43,9 @@ public class Echiquier{
 	
 	public boolean conditionValide(Position depart,Position arrive)
 	{
+		try{
 		if(depart.getCase(this) != null && arrive.getCase(this) != null)
+			{
 				if(
 				(depart.getLigne() >= 0 && depart.getLigne() <= 7)
 				&&
@@ -55,7 +57,11 @@ public class Echiquier{
 				)
 					if(depart.getCase(this).getPiece().deplacementValide(depart, this).contains(arrive))
 						return true;
-		
+			}
+		}
+		catch(NullPointerException e ){
+			a.afficher("\n===Case vide===\n");
+		}
 		return false;
 	}
 	
