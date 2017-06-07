@@ -25,4 +25,9 @@ public class Affichage {
 	{
 		System.out.println(message);
 	}
+	
+	public void afficherSansLn(String message)
+	{
+		System.out.print(message);
+	}
 }

@@ -12,7 +12,7 @@ public class Echiquier{
 		for(int i=0 ; i<8 ; i++)
 			for(int j=0; j<8; j++)
 			plateau[i][j] = new Case();
-		this.f = new File("../save.txt");
+		this.f = new File("../../savem.txt");
 	}
 	
 	public Case[][] getPlateau()
@@ -95,7 +95,6 @@ public class Echiquier{
 		this.setPiece(null, posInit);
 		if (echecRoi() == couleur)
 		{
-			a.afficher("Echec au roi " + couleur);
 			this.setPiece(getPiece(posFinal),posInit);
 			this.setPiece(null, posFinal);
 			return 0;
@@ -126,16 +125,19 @@ public class Echiquier{
 	public boolean echecEtMat(){
 		if (echecRoi() == "blanc" || echecRoi() == "noir"){
 			if (echecRoi() == "blanc"){
+				int compteur = 0;
+				int compteurTotal =0;
 				for(int x = 0 ; x < 8;x++)
 				{
 					for(int y = 0 ; y < 8;y++)
 					{
-						if ((this.getCase(x, y).occupe()) && (this.getCase(x, y).getPiece().getNom() == "roi") && (this.getCase(x, y).getPiece().getCouleur() == "blanc")) {
+						if ((this.getCase(x, y).occupe("blanc")) /*&& (this.getCase(x, y).getPiece().getNom() == "roi")*/) {
 							Piece roi = this.getCase(x, y).getPiece();
 							Position p = new Position(x,y);
-							int compteur = 0;
+							
 							for (int i = 0; i < roi.deplacementValide(p, this).size();i++)
 							{
+								compteurTotal++;
 								Position posFinal = roi.deplacementValide(p, this).get(i);
 								Piece tmp = null;
 								if (posFinal.getCase(this).getPiece() != null) tmp = posFinal.getCase(this).getPiece();
@@ -156,26 +158,28 @@ public class Echiquier{
 									this.setPiece(tmp, posFinal);
 								}
 							}
-							if (compteur == roi.deplacementValide(p, this).size()){
-								a.afficher("Echecs et Mat ! Noir a gagné !");
-								return true;
-							}
-						}
-							
+						}	
 					}
 				}
+				if (compteur == compteurTotal){
+					a.afficher(" et Mat ! Noir a gagné !");
+					return true;
+				}
 			}
-			if (echecRoi() == "noir"){
+			else if (echecRoi() == "noir"){
+				int compteur = 0;
+				int compteurTotal =0;
 				for(int x = 0 ; x < 8;x++)
 				{
 					for(int y = 0 ; y < 8;y++)
 					{
-						if ((this.getCase(x, y).occupe()) && (this.getCase(x, y).getPiece().getNom() == "roi") && (this.getCase(x, y).getPiece().getCouleur() == "noir")) {
+						if ((this.getCase(x, y).occupe("noir")) /*&& (this.getCase(x, y).getPiece().getNom() == "roi")*/) {
 							Piece roi = this.getCase(x, y).getPiece();
 							Position p = new Position(x,y);
-							int compteur = 0;
+							
 							for (int i = 0; i < roi.deplacementValide(p, this).size();i++)
 							{
+								compteurTotal++;
 								Position posFinal = roi.deplacementValide(p, this).get(i);
 								Piece tmp = null;
 								if (posFinal.getCase(this).getPiece() != null) tmp = posFinal.getCase(this).getPiece();
@@ -196,13 +200,14 @@ public class Echiquier{
 									this.setPiece(tmp, posFinal);
 								}
 							}
-							if (compteur == roi.deplacementValide(p, this).size()){
-								a.afficher("Echecs et Mat ! Blanc a gagné !");
-								return true;
-							}
+							
 						}
 							
 					}
+				}
+				if (compteur == compteurTotal){
+					a.afficher(" et Mat ! Blanc a gagné !");
+					return true;
 				}
 			}
 		}

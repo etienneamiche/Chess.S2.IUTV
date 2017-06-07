@@ -49,6 +49,7 @@ public class Partie {
 		do{
 			tourDeJeu();
 			a.afficher(e);
+			if((e.echecRoi() != null)) a.afficherSansLn("Echec");
 		}while (e.echecEtMat() == false);
 	}	
 }
